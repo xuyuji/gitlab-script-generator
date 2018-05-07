@@ -43,13 +43,22 @@ cd ..
 ```
 
 
-
-
-
-
 # 实现方法
 
 就是用jsoup去爬project列表，然后根据这些信息写bat脚本。
-```
 
-```
+
+
+# 使用方法
+
+修改application.properties里的配置为自己的配置：端口、gitlab路径。
+
+* 使用maven插件启动
+
+  mvn spring-boot:run
+
+* 打包启动
+
+  mvn package
+
+  java -jar gitlab-script-generator-x.x.x.jar & 
