@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<form action="/gen" method="post">
+	<h1>gitlab脚本生成器</h1>
+	<h5>输入自己的账号密码，生成所拥有权限的工程的checkout脚本。</h5>
+	<h5 style="color:red">如果下载的是空文件，说明账号密码不对（懒的做提示了╮(๑•́ ₃•̀๑)╭）。</h5>
+	<table>
+		<tr>
+			<td>gitlab 用户名</td>
+			<td><input type="text" name="username"/></td>
+		</tr>
+		<tr>
+			<td>gitlab 密码</td>
+			<td><input type="password" name="password"/></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="提交" /></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
