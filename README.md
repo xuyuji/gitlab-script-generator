@@ -14,26 +14,22 @@
 
 CheckOut.bat长这样
 
-<code>
-
+```
 @echo off
 
-if not exist java-components mkdir java-components
-if not exist ip-java-components mkdir ip-java-components
-if not exist ip-java-commons mkdir ip-java-commons
-if not exist ip-java-ice-slice mkdir ip-java-ice-slice
 if not exist ip-java-services mkdir ip-java-services
 if not exist ip-java-web-servers mkdir ip-java-web-servers
+......
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-SET var=redis-cache ice-all dt-finally
+SET var=user-service info-service
 
-cd java-components
+cd ip-java-services
 FOR %%a IN (%var%) DO (
     SET dir=%%a
-    SET url=http://192.168.10.44:800/java-components/%%a.git
-    
+    SET url=http://192.168.10.44:800/ip-java-services/%%a.git
+
     if exist !dir! (
       cd !dir! & git pull
       echo !cd! finished & cd ..
@@ -43,10 +39,17 @@ FOR %%a IN (%var%) DO (
 )
 cd ..
 
-</code>
+......
+```
+
+
+
 
 
 
 # 实现方法
 
 就是用jsoup去爬project列表，然后根据这些信息写bat脚本。
+```
+
+```
