@@ -72,7 +72,7 @@ public class SpiderServiceImpl implements SpiderService {
 				Response rs = con.cookie(Constant.GITLAB_SESSION, gitlabSession).execute();
 				Document d = Jsoup.parse(rs.body());
 
-				Elements projects = d.select("div[class=projects-list-holder]");
+				Elements projects = d.select("ul[class=projects-list]");
 				if (projects.isEmpty()) {
 					break;
 				} else {

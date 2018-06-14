@@ -6,11 +6,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.xuyuji.gitlab.script.generator.config.GitlabConfig;
 import org.xuyuji.gitlab.script.generator.service.ScriptGeneratorService;
 
 @Service
 public class BatScriptGeneratorService implements ScriptGeneratorService {
+
+	@Autowired
+	private GitlabConfig gitlabConfig;
 
 	@Override
 	public void write(BufferedWriter writer, Map<String, List<String>> projectsInfo) throws IOException {
@@ -45,7 +50,7 @@ public class BatScriptGeneratorService implements ScriptGeneratorService {
 			writer.newLine();
 			writer.append("    SET dir=%%a");
 			writer.newLine();
-			writer.append(String.format("    SET url=http://192.168.10.44:800/%s/", module) + "%%a.git");
+			writer.append(String.format("    SET url=%s/%s/", gitlabConfig.getAddress(), module) + "%%a.git");
 			writer.newLine();
 			writer.newLine();
 			writer.append("    if exist !dir! (");

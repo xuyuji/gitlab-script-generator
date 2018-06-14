@@ -7,24 +7,42 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "gitlab")
 public class GitlabConfig {
 
-	private String loginUrl;
+	private String address;
 
-	private String projectsUrl;
+	private String loginPath;
 
-	public String getLoginUrl() {
-		return loginUrl;
+	private String projectsPath;
+
+	public String getAddress() {
+		return address;
 	}
 
-	public void setLoginUrl(String loginUrl) {
-		this.loginUrl = loginUrl;
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getLoginUrl() {
+		return address + loginPath;
 	}
 
 	public String getProjectsUrl() {
-		return projectsUrl;
+		return address + projectsPath;
 	}
 
-	public void setProjectsUrl(String projectsUrl) {
-		this.projectsUrl = projectsUrl;
+	public String getLoginPath() {
+		return loginPath;
+	}
+
+	public void setLoginPath(String loginPath) {
+		this.loginPath = loginPath;
+	}
+
+	public String getProjectsPath() {
+		return projectsPath;
+	}
+
+	public void setProjectsPath(String projectsPath) {
+		this.projectsPath = projectsPath;
 	}
 
 }
