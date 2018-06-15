@@ -72,11 +72,11 @@ public class SpiderServiceImpl implements SpiderService {
 				Response rs = con.cookie(Constant.GITLAB_SESSION, gitlabSession).execute();
 				Document d = Jsoup.parse(rs.body());
 
-				Elements projects = d.select("ul[class=projects-list]");
+				Elements projects = d.select("ul.projects-list");
 				if (projects.isEmpty()) {
 					break;
 				} else {
-					for (Element e : projects.select("span[class=project-full-name]")) {
+					for (Element e : projects.select("span.project-full-name")) {
 						String strs[] = e.text().split("/");
 						String module = strs[0].trim();
 						String project = strs[1].trim();
